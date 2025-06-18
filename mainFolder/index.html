@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game Việt Hóa</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <header class="bg-white shadow-md sticky top-0 z-10">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold">Game Việt Hóa</h1>
+      <input id="searchInput" type="text" placeholder="Tìm game..." class="border rounded px-3 py-1 w-64" />
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto p-4">
+    <div id="game-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+  </main>
+
+  <footer class="text-center py-4 bg-white mt-10 shadow-inner">
+    <p>&copy; 2025 by TuanTA | <a href="#" class="text-blue-500">Donate</a></p>
+  </footer>
+
+  <!-- Nhúng file JS -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
