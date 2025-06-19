@@ -7,19 +7,40 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 </head>
 <body class="bg-gray-900 text-white">
-  <div class="max-w-3xl mx-auto p-6">
+  <!-- Header giống trang index -->
+  <header class="bg-gray-800 text-white shadow-md sticky top-0 z-10">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold">VNGame18</h1>
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Tìm kiếm..."
+        class="border border-gray-600 bg-gray-700 text-white placeholder-gray-300 rounded px-3 py-1 w-64"
+      />
+    </div>
+  </header>
+
+  <!-- Nội dung chi tiết game -->
+  <main class="max-w-3xl mx-auto p-6">
     <a href="index.html" class="text-blue-400">&larr; Quay về</a>
     <h1 id="game-name" class="text-3xl font-bold mt-4 mb-2">Đang tải...</h1>
     <img id="game-img" src="" alt="" class="rounded shadow mb-4" />
     <p id="game-tags" class="mb-4"></p>
     <p id="game-desc" class="mb-6"></p>
 
-    <!-- 📌 Phần chèn nội dung chi tiết -->
     <div id="extra-detail" class="mb-6 text-base leading-relaxed"></div>
 
     <a id="game-link" href="#" class="bg-blue-500 text-white px-4 py-2 rounded shadow hover:bg-blue-600">Tải game</a>
-  </div>
+  </main>
 
+  <!-- Footer giống trang index -->
+  <footer class="text-center py-4 bg-gray-800 text-white mt-10 shadow-inner">
+    <p>
+      &copy; 2025 by TuanTA | <a href="#" class="text-blue-400">Donate</a>
+    </p>
+  </footer>
+
+  <!-- Script -->
   <script>
     const params = new URLSearchParams(window.location.search);
     const gameId = params.get("id");
@@ -27,7 +48,6 @@
     if (!gameId) {
       document.body.innerHTML = "<p class='text-red-500 p-4'>Thiếu ID game.</p>";
     } else {
-      // Tải data.json
       fetch(`game/${gameId}/data.json`)
         .then((res) => res.json())
         .then((data) => {
@@ -43,7 +63,6 @@
           document.body.innerHTML = "<p class='text-red-500 p-4'>Không tìm thấy game.</p>";
         });
 
-      // 📌 Tải detail.html nếu có
       fetch(`game/${gameId}/detail.html`)
         .then(res => {
           if (!res.ok) throw new Error();
@@ -52,9 +71,7 @@
         .then(html => {
           document.getElementById("extra-detail").innerHTML = html;
         })
-        .catch(() => {
-          // Không có detail.html thì bỏ qua
-        });
+        .catch(() => {});
     }
   </script>
 </body>
