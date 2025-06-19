@@ -6,7 +6,8 @@
   <title>Chi tiết game</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 </head>
-<body class="bg-gray-900 text-white">
+<body class="bg-black text-white">
+
   <!-- Header giống trang index -->
   <header class="bg-gray-800 text-white shadow-md sticky top-0 z-10">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
@@ -20,23 +21,36 @@
     </div>
   </header>
 
-  <!-- Nội dung chi tiết game -->
-  <main class="max-w-3xl mx-auto p-6">
-    <a href="index.html" class="text-blue-400">&larr; Quay về</a>
-    <h1 id="game-name" class="text-3xl font-bold mt-4 mb-2">Đang tải...</h1>
-    <img id="game-img" src="" alt="" class="rounded shadow mb-4" />
-    <p id="game-tags" class="mb-4"></p>
-    <p id="game-desc" class="mb-6"></p>
+  <!-- Layout chia trái-phải -->
+  <main class="max-w-7xl mx-auto p-6 flex flex-col md:flex-row gap-8">
+    
+    <!-- Cột trái: nội dung chính -->
+    <div class="w-full md:w-2/3">
+      <a href="index.html" class="text-blue-400">&larr; Quay về</a>
+      <h1 id="game-name" class="text-3xl font-bold mt-4 mb-2">Đang tải...</h1>
+      <img id="game-img" src="" alt="" class="rounded shadow mb-4" />
+      <p id="game-tags" class="mb-4"></p>
+      <p id="game-desc" class="mb-6"></p>
 
-    <div id="extra-detail" class="mb-6 text-base leading-relaxed"></div>
+      <div id="extra-detail" class="mb-6 text-base leading-relaxed"></div>
 
-    <a id="game-link" href="#" class="bg-blue-500 text-white px-4 py-2 rounded shadow hover:bg-blue-600">Tải game</a>
+      <a id="game-link" href="#" class="bg-blue-500 text-white px-4 py-2 rounded shadow hover:bg-blue-600">Tải game</a>
+    </div>
+
+    <!-- Cột phải: gợi ý game -->
+    <div class="hidden md:block w-full md:w-1/3">
+      <div class="bg-gray-800 p-4 rounded shadow">
+        <h2 class="text-xl font-semibold mb-2">Gợi ý khác</h2>
+        <p class="text-sm text-gray-300">Chưa có nội dung.</p>
+      </div>
+    </div>
+
   </main>
 
-  <!-- Footer giống trang index -->
+  <!-- Footer -->
   <footer class="text-center py-4 bg-gray-800 text-white mt-10 shadow-inner">
     <p>
-      &copy; 2025 by TuanTA | <a href="#" class="text-blue-400">Donate</a>
+      &copy; 2025 by ... | <a href="#" class="text-blue-400">Donate</a>
     </p>
   </footer>
 
